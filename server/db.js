@@ -100,12 +100,12 @@ async function fetchFavorites() {
 
 // fetchFavorites: A method that returns an array of favorites for a user,
 
-async function destroyFavorite(id, user_id) {
+async function destroyFavorite(id) {
   const SQL = `
   DELETE FROM favorites
-  WHERE id = $1 AND user_id = $2
+  WHERE id = $1
 `;
-  await client.query(SQL, [id, user_id]);
+  await client.query(SQL, [id]);
 }
 
 // destroyFavorite: A method that deletes a favorite in the database.
@@ -115,6 +115,8 @@ const init = async () => {
   await createTables();
   await createUser("smilingjoe", "password");
   await createUser("frowningFrank", "password");
+  await createProduct({name: "shampoo"});
+  await createProduct({name:"soap"})
   console.table(await fetchUsers());
 };
 

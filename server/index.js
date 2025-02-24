@@ -35,8 +35,8 @@ app.get("/api/users/:id/favorites", async (req, res, next) => {
 
 app.delete("/api/users/:userId/favorites/:id", async (req, res, next) => {
   try {
-    console.log("Received DELETE request with body:", req.body);
-    await db.destroyFavorite({ user_id: req.params.userId, product_id: req.params.productId });
+    console.log("Received DELETE request with body:");
+    await db.destroyFavorite(req.params.id);
     res.sendStatus(204);
   } catch (ex) {
     next(ex);
