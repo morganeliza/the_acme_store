@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
-    "start:dev": "nodemon server"
+    "start:dev": "nodemon server",
+    "dev": "vite",
+    "dev:c9": "vite --port 8081",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
